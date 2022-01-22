@@ -2,21 +2,16 @@ import React, {useState, useEffect} from "react";
 import Axios from "axios";
 
 
-function Login() {
-    
+function Login() {    
     const [movieName, setMovieName] = useState('')
     const [review, setReview] = useState('')
     const [movieReviewList, setReviewList] = useState([])
-
-
         
     useEffect(() =>{
         Axios.get('http://localhost:3001/api/get').then((response) =>{
             setReviewList(response.data)
         })
-    }, [])
-
-    
+    }, [])    
 
     const submitReview = () =>{
         Axios.post("http://localhost:3001/api/insert", {
